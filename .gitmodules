@@ -1,6 +1,3 @@
-[submodule "Library/assimp"]
-	path = Library/assimp
-	url = https://github.com/assimp/assimp.git
 [submodule "Library/D3DX12"]
 	path = Library/D3DX12
 	url = https://github.com/harumas/D3DX12

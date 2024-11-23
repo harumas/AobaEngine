@@ -17,7 +17,6 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -53,27 +52,24 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" >
+  <ImportGroup Label="Shared">
   </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -108,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\Library\D3DX12;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,9 +128,86 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application\AppContext.h" />
+    <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Application\CommandQueue.h" />
+    <ClInclude Include="Application\Component\Camera.h" />
+    <ClInclude Include="Application\Component\Component.h" />
+    <ClInclude Include="Application\Component\ConstantBuffer.h" />
+    <ClInclude Include="Application\Component\GameObject.h" />
+    <ClInclude Include="Application\Component\Light.h" />
+    <ClInclude Include="Application\Component\Material.h" />
+    <ClInclude Include="Application\Component\ObjectService.h" />
+    <ClInclude Include="Application\Component\PointLight.h" />
+    <ClInclude Include="Application\Component\Renderer.h" />
+    <ClInclude Include="Application\Component\ShaderPass.h" />
+    <ClInclude Include="Application\Component\ShaderPass\HalfLambertPass.h" />
+    <ClInclude Include="Application\Component\ShaderPass\PhongPass.h" />
+    <ClInclude Include="Application\Component\ShaderPass\ShaderPassPool.h" />
+    <ClInclude Include="Application\Component\ShaderPass\ShadowMapTestPass.h" />
+    <ClInclude Include="Application\Component\ShaderPass\StandardPass.h" />
+    <ClInclude Include="Application\Component\SimpleCamera.h" />
+    <ClInclude Include="Application\Component\Transform.h" />
+    <ClInclude Include="Application\DxObject.h" />
+    <ClInclude Include="Application\FbxLoader.h" />
+    <ClInclude Include="Application\GraphicsContext.h" />
+    <ClInclude Include="Application\Helper.h" />
+    <ClInclude Include="Application\Input\Input.h" />
+    <ClInclude Include="Application\RenderPipeline.h" />
+    <ClInclude Include="Application\RenderTargetBuffer.h" />
+    <ClInclude Include="Application\Utility\EventHandler.h" />
+    <ClInclude Include="Application\Utility\MathHelper.h" />
+    <ClInclude Include="Application\Utility\Mesh.h" />
+    <ClInclude Include="Application\Utility\ServiceLocator.h" />
+    <ClInclude Include="Application\Utility\Texture.h" />
+    <ClInclude Include="Application\Utility\TextureLoader.h" />
+    <ClInclude Include="Application\Win32Application.h" />
+    <ClInclude Include="Scene\BaseScene.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application\AppContext.cpp" />
+    <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Application\CommandQueue.cpp" />
+    <ClCompile Include="Application\Component\Camera.cpp" />
+    <ClCompile Include="Application\Component\Component.cpp" />
+    <ClCompile Include="Application\Component\ConstantBuffer.cpp" />
+    <ClCompile Include="Application\Component\GameObject.cpp" />
+    <ClCompile Include="Application\Component\Light.cpp" />
+    <ClCompile Include="Application\Component\Material.cpp" />
+    <ClCompile Include="Application\Component\ObjectService.cpp" />
+    <ClCompile Include="Application\Component\PointLight.cpp" />
+    <ClCompile Include="Application\Component\Renderer.cpp" />
+    <ClCompile Include="Application\Component\SimpleCamera.cpp" />
+    <ClCompile Include="Application\DxObject.cpp" />
+    <ClCompile Include="Application\FbxLoader.cpp" />
+    <ClCompile Include="Application\GraphicsContext.cpp" />
+    <ClCompile Include="Application\Input\Input.cpp" />
+    <ClCompile Include="Application\RenderPipeline.cpp" />
+    <ClCompile Include="Application\RenderTargetBuffer.cpp" />
+    <ClCompile Include="Application\Utility\MathHelper.cpp" />
+    <ClCompile Include="Application\Utility\Texture.cpp" />
+    <ClCompile Include="Application\Utility\TextureLoader.cpp" />
+    <ClCompile Include="Application\Win32Application.cpp" />
+    <ClCompile Include="Scene\BaseScene.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets" Condition="Exists('..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets')" />
+    <Import Project="..\packages\Assimp.3.0.0\build\native\Assimp.targets" Condition="Exists('..\packages\Assimp.3.0.0\build\native\Assimp.targets')" />
+    <Import Project="..\packages\directxtex_desktop_win10.2024.6.5.1\build\native\directxtex_desktop_win10.targets" Condition="Exists('..\packages\directxtex_desktop_win10.2024.6.5.1\build\native\directxtex_desktop_win10.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\Assimp.3.0.0\build\native\Assimp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Assimp.3.0.0\build\native\Assimp.targets'))" />
+    <Error Condition="!Exists('..\packages\directxtex_desktop_win10.2024.6.5.1\build\native\directxtex_desktop_win10.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtex_desktop_win10.2024.6.5.1\build\native\directxtex_desktop_win10.targets'))" />
+  </Target>
 </Project>
